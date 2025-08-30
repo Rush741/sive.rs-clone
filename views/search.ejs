@@ -1,0 +1,31 @@
+<%- include('partials/header.ejs') %>
+<h2>SEARCH</h2>
+<form action="/search/" method="GET">
+    <div class="search-container">
+    <span class="icon">🔍</span>
+    <input type="text" id="searchInput" name="q" placeholder="Search..." required>
+    <button class="clear-btn" onclick="clearInput()">Clear</button>
+  </div>
+</form>
+<div>
+    <% notes.forEach((note) => { %>
+        <div class="book-notes" id="book-notes">
+            <a href="/book/<%=note.id%>">
+                <img class="book-cover" src="<%=note.cover_url%>" height="160">
+                <h3 class="note-title"><%= note.title.toUpperCase() %> </h3>
+            </a>
+            <p class="note-subtitle">DATE READ: <%=new Date(note.updated_at).toDateString().slice(4)%>. HOW STRONGLY I RECOMMEND IT: <%=note.rating%>/10</p>
+            <p><%=note.notes.slice(0, 380)%>...</p>
+        </div>
+        
+    <% }) %>
+        
+</div>
+<script>
+    function onclick() {
+        document.getElementById("searchInput").value = "";
+    }
+</script>
+
+
+<%- include('partials/footer.ejs') %>

@@ -1,0 +1,15 @@
+<%- include('partials/header.ejs') %>
+<div>
+    <div class="book-notes" id="book-notes">
+        <a href="https://www.amazon.com/Atomic-Habits-Proven-Build-Break/dp/0735211299">
+            <img class="book-cover" src="<%=note.cover_url%>" height="160">
+        </a>
+        <h3 class="note-title"><%= note.title.toUpperCase() %> </h3>
+        <p class="note-subtitle">DATE READ: <%=new Date(note.updated_at).toDateString().slice(4)%>. HOW STRONGLY I RECOMMEND IT: <%=note.rating%>/10</p>
+        <p><%=note.notes.slice(0, 380)%>...</p>
+    </div>
+        
+</div>
+
+
+<%- include('partials/footer.ejs') %>

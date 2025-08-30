@@ -1,0 +1,27 @@
+<%- include('partials/header.ejs') %>
+<h2>BOOKS I'VE READ</h2>
+<form action="/" method="GET" id="title-text">
+<p>Tiny summary but detailed notes for each. Use the ISBN number to find it from your local library or anywhere else. This page will constantly update as I read more, so bookmark it if you want to check back in a few months.
+<br><br>Sorted with my top recommendations up top.
+Sort by 
+<span><a href="/?sort=title">title</a></span>, 
+<span><a href="/?sort=updated_at DESC">newest</a></span>, or 
+<span><a href="/?sort=rating DESC">best</a></span>.<br><br>
+And please read this FAQ page about these notes, if you have any questions. You can also email me.</p><hr>
+</form>
+<div>
+    <% notes.forEach((note) => { %>
+        <div class="book-notes" id="book-notes">
+            <a href="/book/<%=note.id%>">
+                <img class="book-cover" src="<%=note.cover_url%>" height="160">
+                <h3 class="note-title"><%= note.title.toUpperCase() %> </h3>
+            </a>
+            <p class="note-subtitle">DATE READ: <%=new Date(note.updated_at).toDateString().slice(4)%>. HOW STRONGLY I RECOMMEND IT: <%=note.rating%>/10</p>
+            <p><%=note.notes.slice(0, 380)%>...</p>
+        </div>
+        
+    <% }) %>
+</div>
+
+
+<%- include('partials/footer.ejs') %>

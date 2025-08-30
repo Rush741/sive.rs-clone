@@ -72,8 +72,8 @@ span a:hover {
 }
 
 #book-notes {
-  padding-top:60px;
-  padding-bottom: 90px;
+  padding-top:50px;
+  padding-bottom: 80px;
 }
 .note-subtitle {
   font-size: 1rem;
@@ -107,4 +107,36 @@ span a:hover {
   outline: none;
   flex: 1;
   font-size: 16px;
+}
+
+#sub-text {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-redirect {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;                   /* soft black */
+    text-decoration: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;        /* light border for subtle button feel */
+    border-radius: 4px;
+    background: #f9f9f9;
+    transition: all 0.2s ease-in-out;
+}
+
+.search-redirect:hover {
+    background: #eee;            
+    border-color: #999;
+    cursor: pointer;
+}
+
+.search-redirect .icon {
+    margin-right: 4px;             
+}
+
+#book-notes2 {
+  padding-top: 50px;
+  padding-bottom: 10px;
 }
